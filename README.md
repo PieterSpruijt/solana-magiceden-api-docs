@@ -137,18 +137,18 @@ Get a list of bids with a query for a specific collection
   "$sort": { "createdAt": -1 }
 }
 ```
+
 `escrowPubkey` is the public key of the escrow wallet for magic eden
 
-
 ```json
-{"results":[]}
+{ "results": [] }
 ```
-For an user that has not made any Bids
 
+For an user that has not made any Bids
 
 ### Notes
 
-- Make sure the public key  is valid and that the user has made bids before
+- Make sure the public key is valid and that the user has made bids before
 
 ## Get listed nfts by collection
 
@@ -162,7 +162,7 @@ Get a list of nfts listed for sale by a collection symbol
 
 **CloudFlare** : YES
 
-### *Success Response*
+### _Success Response_
 
 **URL** : `/getListedNFTsByQuery?q={%22$match%22:{%22collectionSymbol%22:%22cops_game%22},%22$sort%22:{%22createdAt%22:-1},%22$skip%22:0,%22$limit%22:1}`
 
@@ -171,19 +171,115 @@ Get a list of nfts listed for sale by a collection symbol
 **Query** :
 
 ```json
-{"$match":{"collectionSymbol":"cops_game"},"$sort":{"createdAt":-1},"$skip":0,"$limit":1}
+{
+  "$match": { "collectionSymbol": "cops_game" },
+  "$sort": { "createdAt": -1 },
+  "$skip": 0,
+  "$limit": 1
+}
 ```
 
 for the collection cops_games
 
 ```json
-{"results":[{"id":"GworJjYYs9gnS6znuSrPfBMqnB3VLRC4cXh3fFnRSGYT","price":0.39,"escrowPubkey":"77JxCzwDVHiqZ8JZHh3nn1jzkZ4EvN4q2H6JD6sjiufs","owner":"13c2LDGqsaJc5h5FVwKTvnmQndBKsKiMt4L1KjyQeYc5","collectionName":"cops_game","collectionTitle":"Cops Game","img":"https://bafybeidjje4r4sa42ehbciyoqpi45hmzewu7s3bbs4vrtuyvowmeelir3q.ipfs.nftstorage.link/gen3/images/aaf4ac622d77df6ea70e821d946fecfe.png","title":"Cop#44866","content":"Cops Game is a collection of P2E NFT mult-staking game on the Solana blockchain","externalURL":"https://cops.game/","propertyCategory":"image","creators":[{"address":"A9ajXDuhEsoY7dekvQXdCreawVHkqZy5DJr5XTfxri6m","verified":1,"share":0},{"address":"MEXuhNRByHZmdL8e9C7nhS9SZ8WrNQ6WeWDWBeEQ8u4","verified":0,"share":100}],"sellerFeeBasisPoints":500,"mintAddress":"Fz4K65ZTKExLQKGCguLbDziB9HZz4A97ucjdqQkDndUu","attributes":[{"trait_type":"Skin","value":"Pale White"},{"trait_type":"Feet","value":"Xmas"},{"trait_type":"Pants","value":"Chinos"},{"trait_type":"Outfit","value":"Blue"},{"trait_type":"Face","value":"None"},{"trait_type":"Hat","value":"Bobby"},{"trait_type":"Type","value":"Cop"},{"trait_type":"Rank","value":"Lieutenant"},{"trait_type":"Generation","value":"Gen 3"}],"properties":{"category":"image","files":[{"uri":"https://bafybeidjje4r4sa42ehbciyoqpi45hmzewu7s3bbs4vrtuyvowmeelir3q.ipfs.nftstorage.link/gen3/images/aaf4ac622d77df6ea70e821d946fecfe.png","type":"image/png"}],"creators":[{"address":"MEXuhNRByHZmdL8e9C7nhS9SZ8WrNQ6WeWDWBeEQ8u4","share":100}]},"supply":1,"updateAuthority":"MEXuhNRByHZmdL8e9C7nhS9SZ8WrNQ6WeWDWBeEQ8u4","primarySaleHappened":true,"onChainCollection":{},"isTradeable":true,"tokenDelegateValid":false,"v2":{"auctionHouseKey":"E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe","sellerReferral":"autMW8SgBkVYeBgqYiTuJZnkvDZMVU2MHJh9Jh7CSQ2","expiry":-1},"rarity":{"merarity":{"tokenKey":"Fz4K65ZTKExLQKGCguLbDziB9HZz4A97ucjdqQkDndUu","score":5.7575144305883986e-12,"totalSupply":49995,"rank":3985},"moonrank":{"rank":1401,"absolute_rarity":1.4049404554755062e-11,"crawl":{"id":"cops_game","created":"2022-01-07T14:44:35.401101Z","updated":"2022-10-18T07:13:04.373209Z","first_mint_ts":1641493170,"last_mint_ts":1646278164,"first_mint":"4J2XiwgbJQtqgXt8GdWmQxJUw5Lda5h1kJ7ezZJCxNjY","last_mint":"29ce2tnmmsi7KBiiGFy8jWwx2kjvGSA7NcEmesoRR89q","expected_pieces":20000,"seen_pieces":17948,"last_crawl_id":1582268495918280700,"complete":false,"blocked":false,"unblock_at_ts":0}}},"createdAt":"2022-10-18T07:45:07.926Z"}]}
+{
+  "results": [
+    {
+      "id": "GworJjYYs9gnS6znuSrPfBMqnB3VLRC4cXh3fFnRSGYT",
+      "price": 0.39,
+      "escrowPubkey": "77JxCzwDVHiqZ8JZHh3nn1jzkZ4EvN4q2H6JD6sjiufs",
+      "owner": "13c2LDGqsaJc5h5FVwKTvnmQndBKsKiMt4L1KjyQeYc5",
+      "collectionName": "cops_game",
+      "collectionTitle": "Cops Game",
+      "img": "https://bafybeidjje4r4sa42ehbciyoqpi45hmzewu7s3bbs4vrtuyvowmeelir3q.ipfs.nftstorage.link/gen3/images/aaf4ac622d77df6ea70e821d946fecfe.png",
+      "title": "Cop#44866",
+      "content": "Cops Game is a collection of P2E NFT mult-staking game on the Solana blockchain",
+      "externalURL": "https://cops.game/",
+      "propertyCategory": "image",
+      "creators": [
+        {
+          "address": "A9ajXDuhEsoY7dekvQXdCreawVHkqZy5DJr5XTfxri6m",
+          "verified": 1,
+          "share": 0
+        },
+        {
+          "address": "MEXuhNRByHZmdL8e9C7nhS9SZ8WrNQ6WeWDWBeEQ8u4",
+          "verified": 0,
+          "share": 100
+        }
+      ],
+      "sellerFeeBasisPoints": 500,
+      "mintAddress": "Fz4K65ZTKExLQKGCguLbDziB9HZz4A97ucjdqQkDndUu",
+      "attributes": [
+        { "trait_type": "Skin", "value": "Pale White" },
+        { "trait_type": "Feet", "value": "Xmas" },
+        { "trait_type": "Pants", "value": "Chinos" },
+        { "trait_type": "Outfit", "value": "Blue" },
+        { "trait_type": "Face", "value": "None" },
+        { "trait_type": "Hat", "value": "Bobby" },
+        { "trait_type": "Type", "value": "Cop" },
+        { "trait_type": "Rank", "value": "Lieutenant" },
+        { "trait_type": "Generation", "value": "Gen 3" }
+      ],
+      "properties": {
+        "category": "image",
+        "files": [
+          {
+            "uri": "https://bafybeidjje4r4sa42ehbciyoqpi45hmzewu7s3bbs4vrtuyvowmeelir3q.ipfs.nftstorage.link/gen3/images/aaf4ac622d77df6ea70e821d946fecfe.png",
+            "type": "image/png"
+          }
+        ],
+        "creators": [
+          {
+            "address": "MEXuhNRByHZmdL8e9C7nhS9SZ8WrNQ6WeWDWBeEQ8u4",
+            "share": 100
+          }
+        ]
+      },
+      "supply": 1,
+      "updateAuthority": "MEXuhNRByHZmdL8e9C7nhS9SZ8WrNQ6WeWDWBeEQ8u4",
+      "primarySaleHappened": true,
+      "onChainCollection": {},
+      "isTradeable": true,
+      "tokenDelegateValid": false,
+      "v2": {
+        "auctionHouseKey": "E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe",
+        "sellerReferral": "autMW8SgBkVYeBgqYiTuJZnkvDZMVU2MHJh9Jh7CSQ2",
+        "expiry": -1
+      },
+      "rarity": {
+        "merarity": {
+          "tokenKey": "Fz4K65ZTKExLQKGCguLbDziB9HZz4A97ucjdqQkDndUu",
+          "score": 5.7575144305883986e-12,
+          "totalSupply": 49995,
+          "rank": 3985
+        },
+        "moonrank": {
+          "rank": 1401,
+          "absolute_rarity": 1.4049404554755062e-11,
+          "crawl": {
+            "id": "cops_game",
+            "created": "2022-01-07T14:44:35.401101Z",
+            "updated": "2022-10-18T07:13:04.373209Z",
+            "first_mint_ts": 1641493170,
+            "last_mint_ts": 1646278164,
+            "first_mint": "4J2XiwgbJQtqgXt8GdWmQxJUw5Lda5h1kJ7ezZJCxNjY",
+            "last_mint": "29ce2tnmmsi7KBiiGFy8jWwx2kjvGSA7NcEmesoRR89q",
+            "expected_pieces": 20000,
+            "seen_pieces": 17948,
+            "last_crawl_id": 1582268495918280700,
+            "complete": false,
+            "blocked": false,
+            "unblock_at_ts": 0
+          }
+        }
+      },
+      "createdAt": "2022-10-18T07:45:07.926Z"
+    }
+  ]
+}
 ```
-
 
 ### Notes
 
-* Make sure the collection has listed nfts 
-
-
-
+- Make sure the collection has listed nfts
