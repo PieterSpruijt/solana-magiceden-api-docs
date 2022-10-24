@@ -178,6 +178,8 @@ Get a list of nfts listed for sale by a collection symbol
   "$limit": 1
 }
 ```
+`collectionSymbol` is the symbol of the collection
+
 
 for the collection cops_games
 
@@ -283,3 +285,67 @@ for the collection cops_games
 ### Notes
 
 - Make sure the collection has listed nfts
+
+## Get NFTs by owner
+
+Get all NFTs owned by a given address
+
+**URL** : `/getNFTsByOwner/:publicKey`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+**CloudFlare** : YES
+
+### *Success Response*
+
+**URL** : `/getNFTsByOwner/4nexRvdaGKKSrf9WAFF2mVLSsFiZ4n22ue2kDQzq2MEz`
+
+**Content examples**
+
+
+
+```json
+{"results":[{"mintAddress":"DKCRpaqdS6DE8b53ao9dFtRYgQ2aw7V2UQqHCsCf9D7J","supply":1,"title":"Solana Walker #542","content":"Just walk on Solana blockchain","primarySaleHappened":true,"updateAuthority":"5D9PXEVJkNcSRBvMmwNtVPknNLQgJqhL3SLjFxyegmkU","onChainCollection":{},"sellerFeeBasisPoints":1500,"creators":[{"address":"7Ps1PcbrUaQoMXmnp7vYfkmu3i9KaEm739D2pcJGw1Us","verified":1,"share":0},{"address":"5D9PXEVJkNcSRBvMmwNtVPknNLQgJqhL3SLjFxyegmkU","verified":0,"share":100}],"price":0,"owner":"4nexRvdaGKKSrf9WAFF2mVLSsFiZ4n22ue2kDQzq2MEz","id":"Dbk8XWD6WiikecGVym27L4x9ikFX2VzZSSZDdxqax3Fh","tokenDelegateValid":false,"img":"https://testlaunchmynft.mypinata.cloud/ipfs/QmXmBdRGwzFfb2HLgnKomcD8e9P6WzBzvfMg22odCUaGbQ/542.gif","attributes":[],"properties":{"files":[{"uri":"https://testlaunchmynft.mypinata.cloud/ipfs/QmXmBdRGwzFfb2HLgnKomcD8e9P6WzBzvfMg22odCUaGbQ/542.gif","type":"image/gif"}],"category":"image","creators":[{"address":"5D9PXEVJkNcSRBvMmwNtVPknNLQgJqhL3SLjFxyegmkU","share":100}]},"propertyCategory":"image","externalURL":"","isTradeable":true}]}
+```
+
+
+
+### Notes
+
+* Make sure the nfts are on magic eden and that the wallet has nfts
+
+## Get global activities by collection
+
+Get all activities of a given collection, buy, sell, list, delist and bidding history
+
+**URL** : `/getGlobalActivitiesByQuery`
+
+**Method** : `GET`
+
+**Auth required** : NO
+
+**CloudFlare** : YES
+
+### *Success Response*
+
+**URL** : `/getGlobalActivitiesByQuery?q=%7B"%24match"%3A%7B"collection_symbol"%3A"space_runners"%7D%2C"%24sort"%3A%7B"blockTime"%3A-1%2C"createdAt"%3A-1%7D%2C"%24skip"%3A0%7D`
+
+**Content examples**
+
+**Query** :
+```json
+{"$match":{"collection_symbol":"space_runners"},"$sort":{"blockTime":-1,"createdAt":-1},"$skip":0, "$limit": 10}
+```
+`collection_symbol` is the collection symbol of the collection you want to get the activities from
+
+
+```json
+{"results":[{"transaction_id":"fLKM5pxFZRDCo5YF4EvrjBvLMVKviP5uveMuu93eqMSG3LxPumobXZcsRVNDgH3TEcqD53icjVuEyia9GQYMUgs","txType":"placeBid","accountKeys":["8ayWVE4EBXPvLYgH9npDyFkEqX4Sfzv54LqVS8W8w9Cu","38HGXnoMgcMR6RXNKenALf47TNafdJWVSfLQsbAxxZog","EfDXngjDX8G7B4oJGQfNcxoVMAt2VgAYzkaJnAgG94cw","11111111111111111111111111111111","3VGM5qiidp62Gmkpp5qfNbFH6ywVN3vTwAnvfhkEdrKY","5f3pEZ1EcJvzcsXS9tbVwLDdmSrQkgzAY1R8QdUSFvKn","autMW8SgBkVYeBgqYiTuJZnkvDZMVU2MHJh9Jh7CSQ2","E8cU1WiRWjanGxmn96ewBgk9vPTcL6AEZ1t6F6fkgUWe","M2mx93ekt1fmXSVkTrUL9xVFHkmME8HTUi5Cyc5aF7K","NTYeYJ1wr4bpM5xo6zx5En44SvJFAd35zTxxNoERYqd","SysvarRent111111111111111111111111111111111","TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"],"blockTime":1666604101,"buyer_address":"8ayWVE4EBXPvLYgH9npDyFkEqX4Sfzv54LqVS8W8w9Cu","collection_symbol":"space_runners","createdAt":"2022-10-24T09:35:03.922Z","mint":"5f3pEZ1EcJvzcsXS9tbVwLDdmSrQkgzAY1R8QdUSFvKn","notifiable":true,"onChainCollectionAddress":null,"parsedPlacebid":{"TxType":"placeBid","buyer_address":"8ayWVE4EBXPvLYgH9npDyFkEqX4Sfzv54LqVS8W8w9Cu","token_address":"5f3pEZ1EcJvzcsXS9tbVwLDdmSrQkgzAY1R8QdUSFvKn","amount":4100000000,"collection_symbol":"space_runners","mint":"5f3pEZ1EcJvzcsXS9tbVwLDdmSrQkgzAY1R8QdUSFvKn"},"seller_address":null,"signers":["8ayWVE4EBXPvLYgH9npDyFkEqX4Sfzv54LqVS8W8w9Cu"],"slot":157113463,"source":"magiceden_v2","step":0,"totalSteps":1,"txName":"buy","updatedAt":"2022-10-24T09:35:07.690Z","mintObject":{"mintAddress":"5f3pEZ1EcJvzcsXS9tbVwLDdmSrQkgzAY1R8QdUSFvKn","supply":1,"title":"Space Runners x NBA Champions #615","content":"Space Runners is the first NFT Metaverse Fashion brand in collaboration with artists and brands, designing digitally wearable NFTs through Augmented Reality (AR) and plug-in's into the Metaverse as items. \n\nAs the genesis batch, Space Runners teamed up with NBA Champions Kyle Kuzma and Nick Young to launch a 10K Sneaker NFT Collection. Owners of the NFTs become members of an exclusive RUNNERS club, where they can reap members-only benefits such as tickets to NBA basketball games, signed Kyle Kuzma & Nick Young merchandise, exclusive invites to NBA parties & pick up games, auto-whitelist for Space Runners’ next drop, and more.  \n\n🏀Nick Young Sneaker NFT 🏀\n\nVisit www.spacerunners.com for more information.\n","primarySaleHappened":true,"updateAuthority":"4Ls1u7VofB5R66fVgcekVY2REe2s4eNYA7jQHkw6GhMV","onChainCollection":{},"sellerFeeBasisPoints":425,"creators":[{"address":"EAJ6w757boibxSWX9rDy4sbWsqc1tqDc6gnbe8QAGhDd","verified":1,"share":0},{"address":"GF8PMuwqQiLGahuBQkq4eKLndh5D9qGL7p9e3imQkPqR","verified":1,"share":12},{"address":"76FCZeHbqX3ooMyyGfSD3sci1NPCxKhbLro5dF18EJh2","verified":0,"share":44},{"address":"8xgakpq78m29y4o4obkiQ1NHV4vqgxRiuTaXyUmMytdV","verified":0,"share":44}],"img":"https://metadata-temp-api.spacerunners.com/images/615","attributes":[{"trait_type":"Texture","value":"Satin Black"},{"trait_type":"Toes","value":"Four Square"},{"trait_type":"Ankles","value":"Poppers"},{"trait_type":"Laces","value":"XX"},{"trait_type":"Soles","value":"Tan MH Studs"},{"trait_type":"Socks","value":"Loosy Questions"},{"trait_type":"Skin","value":"White"},{"trait_type":"Background","value":"Matte Yellow"}],"properties":{"category":"image","files":[{"uri":"https://metadata-temp-api.spacerunners.com/images/615","type":"image/jpg"}],"creators":[{"address":"EAJ6w757boibxSWX9rDy4sbWsqc1tqDc6gnbe8QAGhDd","verified":true,"share":0},{"address":"GF8PMuwqQiLGahuBQkq4eKLndh5D9qGL7p9e3imQkPqR","verified":false,"share":12},{"address":"76FCZeHbqX3ooMyyGfSD3sci1NPCxKhbLro5dF18EJh2","verified":false,"share":44},{"address":"8xgakpq78m29y4o4obkiQ1NHV4vqgxRiuTaXyUmMytdV","verified":false,"share":44}]},"propertyCategory":"image","externalUrl":"https://spacerunners.com","onChainName":"Space Runners #615","rarity":{"merarity":{"tokenKey":"5f3pEZ1EcJvzcsXS9tbVwLDdmSrQkgzAY1R8QdUSFvKn","score":5.374068162193047e-12,"totalSupply":9806,"rank":1226},"moonrank":{"rank":1215,"absolute_rarity":4.780289930819904e-12,"crawl":{"id":"space_runners","created":"2022-01-04T17:14:16.982267Z","updated":"2022-01-04T17:14:16.982267Z","first_mint_ts":1640225916,"last_mint_ts":1640276032,"first_mint":"Hp2w1FmT3mxeufCZrXBxtsShS5THCNhikvJaKThW2WmY","last_mint":"HBHSLZKw2stX9TB5SutNfC3dTw3D4uGWbkXkZ7nhwjTt","expected_pieces":10000,"seen_pieces":10000,"last_crawl_id":1476700067892039700,"complete":true,"blocked":false,"unblock_at_ts":0}}}}}]}
+```
+
+
+### Notes
+
+* Make sure the collection has a history
